@@ -1,0 +1,104 @@
+.#{$gridy-classname-prefix}l-#{$gridy-gridblock-abbr} {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row;
+
+    //block layout direction, default is row
+    &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}--row-reverse {
+
+        flex-direction: row-reverse;
+    }
+
+
+    &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}--column {
+
+        flex-direction: column;
+    }
+
+    &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}--column-reverse {
+
+        flex-direction: column-reverse;
+    }
+
+    // Alignment - Static
+    // left
+    &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}--left {
+
+        justify-content: flex-start;
+    }
+
+    // center
+    &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}--center {
+
+        justify-content: center;
+    }
+
+    // right
+    &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}--right {
+
+        justify-content: flex-end;
+    }
+
+    // top
+    &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}--top {
+
+        align-items: flex-start;
+    }
+
+    // middle
+    &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}--middle {
+
+        align-items: center;
+    }
+
+    // bottom
+    &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}--bottom {
+
+        align-items: flex-end;
+    }
+
+    //alignment - Responsive
+    @include respond_to_breakpoint() {
+
+        $size: $gridy-size;
+
+        // left
+        &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}-#{$size}--left {
+
+            justify-content: flex-start;
+        }
+
+        // center
+        &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}-#{$size}--center {
+
+            justify-content: center;
+        }
+
+        // right
+        &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}-#{$size}--right {
+
+            justify-content: flex-end;
+        }
+
+        // top
+        &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}-#{$size}--top {
+
+            align-items: flex-start;
+        }
+
+        // middle
+        &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}-#{$size}--middle {
+
+            align-items: center;
+        }
+
+        // bottom
+        &.#{$gridy-classname-prefix}lm-#{$gridy-gridblock-abbr}-#{$size}--bottom {
+
+            align-items: flex-end;
+        }
+    }
+
+}

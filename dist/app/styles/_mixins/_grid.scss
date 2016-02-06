@@ -1,0 +1,73 @@
+
+@function gridyContainerWidth($_size: $current-size) {
+
+    $size-map: map-get($gridy-breakpoint-list, $_size);
+    $container-width: nth($size-map, 3);
+
+    @return $container-width;
+}
+
+@function _gridyColFraction($i) {
+
+    @return ((100 / 12) * $i) * 1%;
+}
+
+@function _gridyGutterFraction($gutter: $gridy-grid-gutter){
+
+    @return $gutter / 2;
+}
+
+@mixin _setSizeVars($size) {
+
+    $size-map: map-get($gridy-breakpoint-list, $size);
+    $gridy-size: $size !global;
+    $gridy-min-width: nth($size-map, 1) !global;
+    $gridy-max-width: nth($size-map, 2) !global;
+    $gridy-max-container-width: nth($size-map, 3) !global;
+    $gridy-grid-gutter: nth($size-map, 4) !global;
+}
+
+@function _maxViewport($width: $gridy-max-width) {
+
+    $max-viewport: "";
+
+    @if $width != 100% {
+
+        $max-viewport: "and (max-width: #{$width})";
+    }
+
+    @return $max-viewport;
+}
+
+@mixin respond_to_breakpoint($size: null) {
+
+    @if type-of($size) == string {
+
+        @include _setSizeVars($size);
+        $max-viewport: _maxViewport($gridy-max-width);
+        @media screen and (min-width: $gridy-min-width) #{$max-viewport} {
+
+            @content;
+        }
+    } @else {
+
+        @each $size, $widths in $gridy-breakpoint-list {
+
+            @include _setSizeVars($size);
+            $max-viewport: _maxViewport($gridy-max-width);
+            @media screen and (min-width: $gridy-min-width) #{$max-viewport} {
+
+                @content;
+            }
+        }
+    }
+}
+
+@mixin gridy_cel($i) {
+
+    flex: 0 0 auto;
+    max-width: _gridyColFraction($i);
+    flex-basis: _gridyColFraction($i);
+    padding: _gridyGutterFraction();
+}
+
