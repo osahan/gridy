@@ -5,21 +5,19 @@ var gulp = require('gulp');
 var conf = require('./conf');
 var $ = require('gulp-load-plugins')();
 
-var inject = function () {
-  var injectStyles = gulp.src([
-    path.join(conf.paths.tmp, '/serve/app/**/*.css'),
-    path.join('!' + conf.paths.tmp, '/serve/app/vendor.css')
-  ], { read: false });
+gulp.task('inject', ['styles', 'assets'], function () {
 
-  var injectOptions = {
-    ignorePath: [conf.paths.src, path.join(conf.paths.tmp, '/serve')],
-    addRootSlash: false
-  };
+    var injectStyles = gulp.src([
+            path.join(conf.paths.tmp, '/serve/app/index.css'),
+            path.join('!' + conf.paths.tmp, '/serve/app/vendor.css')
+        ], { read: false });
 
-  return gulp.src(path.join(conf.paths.src, '/*.html'))
-    .pipe($.inject(injectStyles, injectOptions))
-    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve')));
-};
+    var injectOptions = {
+      ignorePath: [conf.paths.src, path.join(conf.paths.tmp, '/serve')],
+        addRootSlash: false
+    };
 
-gulp.task('inject', ['scripts', 'styles'], inject);
-gulp.task('inject:build', ['scripts', 'styles:build'], inject);
+    return gulp.src(path.join(conf.paths.src, '/index.html'))
+        .pipe($.inject(injectStyles, injectOptions))
+        .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve')));
+});

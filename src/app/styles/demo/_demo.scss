@@ -1,3 +1,8 @@
+$cell-color: #3b5998;
+$code-color: $cell-color;
+$link-color: lighten($cell-color, 10%);
+// $code-background-color: #ddd;
+$code-background-color: lighten(#4099ff, 30%);
 
 body {
 
@@ -5,6 +10,53 @@ body {
     font-size: 16px;
 }
 
+code {
+    background-color: $code-background-color;
+    padding: 2px 5px;
+    border-radius: 2px;
+    color: $code-color;
+    font-size: 90%;
+}
+
+a {
+
+    color: $link-color;
+
+    &:link,
+    &:active,
+    &:visited{
+        color: $link-color;
+        // text-decoration: none;
+    }
+}
+
+h3 {
+
+    line-height: 1em;
+    margin: 0;
+
+    + pre[class*=language-] {
+
+        margin-top: 1.5em;
+    }
+}
+
+pre[class*=language-] {
+
+    background-color: #fff;
+    margin: 0 0 1.5em 0;
+    padding: 0 1em;
+
+    code {
+
+        background-color: inherit;
+    }
+
+    .token.lf:before {
+
+        display: none;
+    }
+}
 .demo-screen {
 
     padding: 20px;
@@ -22,7 +74,7 @@ body {
         }
     }
 
-    .l-container {
+    .l-#{$gridy-container-abbr} {
 
         width: 320px;
         position: relative;
@@ -42,7 +94,7 @@ body {
 
         }
 
-        .l-container--block {
+        .l-block {
 
             height: 140px;
             border-radius: 2px;
@@ -62,7 +114,7 @@ body {
                     padding: 0;
                 }
 
-                .l-col--cell {
+                .demo--cell {
 
                     margin-top: 5px;
                     margin-bottom: 0;
@@ -111,14 +163,14 @@ body {
 
     background-color: #f1f1f1;
 
-    .l-container {
+    .l-#{$gridy-container-abbr} {
 
         // background-color: #e0e0e0;
         // background-color: #cce6ff;
-        height: 100vh;
+        // height: 100vh;
     }
 
-    .l-container--block {
+    .l-block {
 
         // background-color: #ddd;
     }
@@ -128,21 +180,46 @@ body {
         // min-height: 100px;
     }
 
-    .l-col--cell {
+    .demo--cell {
 
-        // background-color: #9cf;
-        // background-color: #7b7;
-        // background-color: #004a91;
-        background-color: #3b5998;
-        padding: 1.4em;
+        background-color: $cell-color;
+        padding: 1.4em 0;
         color: #fff;
+        text-align: center;
     }
 
     .l-col,
     [class^="l-col-"],
     [class*=" l-col-"] {
 
-        text-align: center;
+        // text-align: center;
         // padding: 20px;
     }
 }
+
+.demo-section--heading {
+
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+.demo-section--desc {
+
+    font-size: 1em;
+    line-height: 1.7em;
+}
+
+.demo-list {
+
+    &--item {
+
+        padding: 5px 0;
+    }
+}
+
+.demo-alignment-block {
+
+    height: 120px;
+    background-color: lighten($cell-color, 30%);
+}
+

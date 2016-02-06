@@ -1,83 +1,174 @@
-.gridy {
+// .#{$gridy-classname-prefix}l-#{$gridy-container-abbr} {
 
-    min-height: 100px;
-}
+//     box-sizing: border-box;
+//     display: flex;
+//     flex-direction: column;
+//     margin: 0 auto;
+//     overflow: hidden;
 
-.l-container {
+//     * {
+
+//         box-sizing: border-box;
+//     }
+
+//     @include respond_to_breakpoint() {
+
+//         width: gridyContainerWidth($gridy-size);
+//         max-width: gridyContainerWidth($gridy-size);
+//     }
+
+//     &.#{$gridy-classname-prefix}lm-#{$gridy-container-abbr}--fluid {
+
+//         width: 100%;
+//     }
+
+//     // &.#{$gridy-classname-prefix}lm-#{$gridy-container-abbr}--row-reverse {
+
+//     //     flex-direction: row-reverse;
+//     // }
+
+//     // &.#{$gridy-classname-prefix}lm-#{$gridy-container-abbr}--column {
+
+//     //     flex-direction: column;
+//     // }
+
+//     // &.#{$gridy-classname-prefix}lm-#{$gridy-container-abbr}--column-reverse {
+
+//     //     flex-direction: column-reverse;
+//     // }
+
+//     // //container layout direction, default is column
+
+//     // &.#{$gridy-classname-prefix}lm-#{$gridy-container-abbr}--row {
+
+//     //     flex-direction: row;
+//     // }
+
+//     // &.#{$gridy-classname-prefix}lm-#{$gridy-container-abbr}--row-reverse {
+
+//     //     flex-direction: row-reverse;
+//     // }
+
+//     // &.#{$gridy-classname-prefix}lm-#{$gridy-container-abbr}--column-reverse {
+
+//     //     flex-direction: column-reverse;
+//     // }
+// }
+
+.#{$gridy-classname-prefix}l-#{$gridy-block-abbr} {
 
     display: flex;
-    box-sizing: border-box;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-direction: row;
 
-    @include respond_to_breakpoint() {
+    //block layout direction, default is row
+    &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--row-reverse {
 
-        width: gridy_container_width($gridy-size);
-    }
-
-    &.l-container--fluid {
-
-        width: 100%;
-    }
-
-    * {
-
-        box-sizing: border-box;
-    }
-
-    &.l-row {
-
-        // display: flex;
-        flex-direction: row;
-    }
-
-    &.l-row-reverse {
-
-        // display: flex;
         flex-direction: row-reverse;
     }
 
-    &.l-column {
+    &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--column {
 
-        // display: flex;
         flex-direction: column;
     }
 
-    &.l-column-reverse {
+    &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--column-reverse {
 
-        // display: flex;
         flex-direction: column-reverse;
     }
 
-    .l-container--block {
+    // Alignment - Static
+    // left
+    &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--left {
 
-        display: flex;
-        flex-wrap: wrap;
-        align-items: stretch;
-        &.l-container--block-column {
+        justify-content: flex-start;
+    }
 
-            flex-direction: column;
+    // center
+    &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--center {
+
+        justify-content: center;
+    }
+
+    // right
+    &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--right {
+
+        justify-content: flex-end;
+    }
+
+    // top
+    &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--top {
+
+        align-items: flex-start;
+    }
+
+    // middle
+    &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--middle {
+
+        align-items: center;
+    }
+
+    // bottom
+    &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--bottom {
+
+        align-items: flex-end;
+    }
+
+    //alignment - Responsive
+    @include respond_to_breakpoint() {
+
+        $size: $gridy-size;
+
+        // left
+        &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}-#{$size}--left {
+
+            justify-content: flex-start;
         }
 
+        // center
+        &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}-#{$size}--center {
+
+            justify-content: center;
+        }
+
+        // right
+        &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}-#{$size}--right {
+
+            justify-content: flex-end;
+        }
+
+        // top
+        &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}-#{$size}--top {
+
+            align-items: flex-start;
+        }
+
+        // middle
+        &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}-#{$size}--middle {
+
+            align-items: center;
+        }
+
+        // bottom
+        &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}-#{$size}--bottom {
+
+            align-items: flex-end;
+        }
     }
+
 }
 
-.l-col--cell {
-
-    margin-bottom: _gridy-gutter-fraction();
-    margin-top: _gridy-gutter-fraction();
-}
-
-.l-col {
+.#{$gridy-classname-prefix}l-col {
 
     flex-basis: 100%;
     flex: 1 0 auto;
     max-width: 100%;
-    padding-left: _gridy-gutter-fraction();
-    padding-right: _gridy-gutter-fraction();
+    padding: _gridyGutterFraction();
 }
 
 @for $i from 1 through 12 {
-    .l-col-#{$i} {
+    .#{$gridy-classname-prefix}l-col#{$i} {
 
             @include gridy_cel($i);
     }
@@ -87,19 +178,52 @@
 
     $size: $gridy-size;
 
-    .l-col-#{$size} {
+    // .#{$gridy-classname-prefix}l-col#{$size} {
 
-        flex-basis: 100%;
-        flex: 1 0 auto;
-        max-width: 100%;
-        padding-left: _gridy-gutter-fraction();
-        padding-right: _gridy-gutter-fraction();
-    }
+    //     flex-basis: 100%;
+    //     flex: 1 0 auto;
+    //     max-width: 100%;
+    //     padding: _gridyGutterFraction();
+    // }
 
     @for $i from 1 through 12 {
-        .l-col-#{$size}-#{$i} {
+        .#{$gridy-classname-prefix}lm-col-#{$size}#{$i} {
 
             @include gridy_cel($i);
+        }
+    }
+}
+
+// Responsive Utilities Hide column
+@include respond_to_breakpoint() {
+
+    $size: $gridy-size;
+
+    .#{$gridy-classname-prefix}l-col-#{$size}--hidden {
+
+        display: none !important;
+    }
+}
+
+// Offset - Static
+@for $i from 1 through 11 {
+    .#{$gridy-classname-prefix}l-offset-col#{$i} {
+
+        @include gridy_cel(12 - $i);
+        margin-left: _gridyColFraction($i);
+    }
+}
+
+// Offset - Responsive
+@include respond_to_breakpoint() {
+
+    $size: $gridy-size;
+
+    @for $i from 1 through 11 {
+        .#{$gridy-classname-prefix}lm-offset-col-#{$size}#{$i} {
+
+            @include gridy_cel(12 - $i);
+            margin-left: _gridyColFraction($i);
         }
     }
 }

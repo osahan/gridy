@@ -5,8 +5,10 @@
     <title>Gridy</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
@@ -27,138 +29,581 @@
     <![endif]-->
 
     <header class="demo-screen">
-        <div class="l-container l-column">
-
+        <div class="l-container">
             <div class="demo-header">GRiDY
             </div>
-
-            <div class="l-container--block header">
-                <div class="l-col-2">
-                    <div class="l-col--cell"><i class="ion-iphone"></i></div>
+            <div class="l-block header">
+                <div class="l-col2">
+                    <div class="demo--cell"><i class="ion-iphone"></i></div>
                 </div>
-                <div class="l-col-3">
-                    <div class="l-col--cell"><i class="ion-ipad"></i></div>
+                <div class="l-col3">
+                    <div class="demo--cell"><i class="ion-ipad"></i></div>
                 </div>
-                <div class="l-col-3">
-                    <div class="l-col--cell"><i class="ion-laptop"></i></div>
+                <div class="l-col3">
+                    <div class="demo--cell"><i class="ion-laptop"></i></div>
                 </div>
-                <div class="l-col-4">
-                    <div class="l-col--cell"><i class="ion-monitor"></i></div>
-                </div>
-            </div>
-
-            <div class="l-container--block">
-                <div class="l-col-2 sm">
-                    <div class="l-col--cell"></div>
-                </div>
-                <div class="l-col-3 md">
-                    <div class="l-col--cell"></div>
-                </div>
-                <div class="l-col-3 lg">
-                    <div class="l-col--cell"></div>
-                </div>
-                <div class="l-col-4 xl">
-                    <div class="l-col--cell"></div>
+                <div class="l-col4">
+                    <div class="demo--cell"><i class="ion-monitor"></i></div>
                 </div>
             </div>
-            <div class="l-container--block footer">
-                <div class="l-col-2">
-                    <div class="l-col--cell">320px</div>
+
+            <div class="l-block">
+                <div class="l-col2 sm">
+                    <div class="l-col--cell"></div>
                 </div>
-                <div class="l-col-3">
-                    <div class="l-col--cell">768px</div>
+                <div class="l-col3 md">
+                    <div class="demo--cell"></div>
                 </div>
-                <div class="l-col-3">
-                    <div class="l-col--cell">1024px</div>
+                <div class="l-col3 lg">
+                    <div class="demo--cell"></div>
                 </div>
-                <div class="l-col-4">
-                    <div class="l-col--cell">1440px</div>
+                <div class="l-col4 xl">
+                    <div class="demo--cell"></div>
+                </div>
+            </div>
+            <div class="l-block footer">
+                <div class="l-col2">
+                    <div class="demo--cell">320px</div>
+                </div>
+                <div class="l-col3">
+                    <div class="demo--cell">768px</div>
+                </div>
+                <div class="l-col3">
+                    <div class="demo--cell">1024px</div>
+                </div>
+                <div class="l-col4">
+                    <div class="demo--cell">1440px</div>
                 </div>
             </div>
         </div>
-
-        <div class="demo-header--meta-content">Flexbox based <span>responsive</span> grid system.</div>
-
+        <h1 class="demo-header--meta-content">Flexbox based <span>responsive</span> grid system.</h1>
     </header>
 
     <div class="gridy gridy-demo">
 
-        <div class="l-container l-column">
+        <div class="l-container">
 
-            <div class="l-container--block">
+            <div class="l-block">
                 <div class="l-col">
-                    <div class="l-col--cell"></div>
+
+                <h2 class="demo-section--heading">Gridy</h2>
+                <p>Simple Flexbox based 12 column grid system, to create layouts through a stacking blocks of columns. Here's how Gridy is layed out</p>
+
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-container">
+    &ltdiv class="l-block">
+        &ltdiv class="l-col">
+            Content...
+        &lt/div>
+    &lt/div>
+
+    ...
+&lt/div>
+</code>
+</pre>
+                <ul class="demo-list">
+                    <li class="demo-list--item">
+                        Stacked blocks must be placed within a <code>.l-container</code> or <code>.l-container-fluid</code> (full-width).
+                    </li>
+
+                    <li class="demo-list--item">
+                        Use <code>.l-block</code> to vertically or horizontally stack your grid columns.
+                    </li>
+
+                    <li class="demo-list--item">
+                        Use <a href="#grid-class-names">predefined classNames</a> <code>.l-col6</code> to quicking create a grid layout inside <code>.l-block</code>.
+                    </li>
+
+                    <li class="demo-list--item">
+                        Content should be placed within <code>.l-col*</code> and column should be immediate child of <code>.l-block</code>.
+                    </li>
+                </ul>
+
+<!--
+Grid columns are created by specifying the number of twelve available columns you wish to span. For example, three equal columns would use three .col-xs-4.
+
+If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.
+
+Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, e.g. applying any .col-md-* class to an element will not only affect its styling on medium devices but also on large devices if a .col-l* class is not present.
+Look to the examples for applying these principles to your code. -->
+
+
                 </div>
             </div>
 
-            <div class="l-container--block">
-                <div class="l-col-12">
-                    <div class="l-col--cell"></div>
+            <div class="l-block">
+                <div class="l-col12">
+                    <div class="demo--cell"></div>
                 </div>
             </div>
 
-            <div class="l-container--block">
-                <div class="l-col-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-6"><div class="l-col--cell"></div></div>
+            <div class="l-block">
+                <div class="l-col6"><div class="demo--cell"></div></div>
+                <div class="l-col6"><div class="demo--cell"></div></div>
             </div>
 
-            <div class="l-container--block">
-                <div class="l-col-4"><div class="l-col--cell"></div></div>
-                <div class="l-col-4"><div class="l-col--cell"></div></div>
-                <div class="l-col-4"><div class="l-col--cell"></div></div>
+            <div class="l-block">
+                <div class="l-col4"><div class="demo--cell"></div></div>
+                <div class="l-col4"><div class="demo--cell"></div></div>
+                <div class="l-col4"><div class="demo--cell"></div></div>
             </div>
 
-            <div class="l-container--block">
-                <div class="l-col-3"><div class="l-col--cell"></div></div>
-                <div class="l-col-3"><div class="l-col--cell"></div></div>
-                <div class="l-col-3"><div class="l-col--cell"></div></div>
-                <div class="l-col-3"><div class="l-col--cell"></div></div>
+            <div class="l-block">
+                <div class="l-col3"><div class="demo--cell"></div></div>
+                <div class="l-col3"><div class="demo--cell"></div></div>
+                <div class="l-col3"><div class="demo--cell"></div></div>
+                <div class="l-col3"><div class="demo--cell"></div></div>
             </div>
 
 
-            <div class="l-container--block">
-                <div class="l-col-2"><div class="l-col--cell"></div></div>
-                <div class="l-col-2"><div class="l-col--cell"></div></div>
-                <div class="l-col-2"><div class="l-col--cell"></div></div>
-                <div class="l-col-2"><div class="l-col--cell"></div></div>
-                <div class="l-col-2"><div class="l-col--cell"></div></div>
-                <div class="l-col-2"><div class="l-col--cell"></div></div>
+            <div class="l-block">
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
             </div>
 
-            <div class="l-container--block">
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
-                <div class="l-col-1 l-col-sm-6"><div class="l-col--cell"></div></div>
+            <div class="l-block">
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
+                <div class="l-col1"><div class="demo--cell"></div></div>
             </div>
+
+
+
+            <div class="l-block">
+                <div class="l-col">
+                    <h2 class="demo-section--heading">Example: Grid</h2>
+                    <p>Start with static columns <a href="#grid-class-names"><code>.l-col1</code></a> - <a href="#grid-class-names"><code>.l-col12</code></a> and use viewport modifiers <a href="#grid-class-names"><code>.lm-col-*1</code></a> - <a href="#grid-class-names"><code>.lm-col-*12</code></a> to create a responsive grid</p>
+                </div>
+            </div>
+            <div class="l-block">
+                <div class="l-col">
+
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-block">
+    &ltdiv class="l-col lm-col-xs2  lm-col-sm3  lm-col-md4  lm-col-lg6  lm-col-xl12">
+        Content...
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                </div>
+            </div>
+            <div class="l-block">
+                <div class="l-col l-col lm-col-xs2  lm-col-sm3  lm-col-md4  lm-col-lg6  lm-col-xl12">
+                    <div class="demo--cell"></div>
+                </div>
+            </div>
+
+            <div class="l-block">
+                <div class="l-col">
+                    <div class="demo--cell">This column is static and the one above is responsive</div>
+                </div>
+            </div>
+
+
+            <div class="l-block">
+
+                <div class="l-col-xs12 l-col-sm6 l-col-md4 l-col-lg3 l-col-xl2">
+                    <div class="demo--cell"></div>
+                </div>
+
+                <div class="l-col-xs12 l-col-sm6 l-col-md4 l-col-lg3 l-col-xl2">
+                    <div class="demo--cell"></div>
+                </div>
+
+                <div class="l-col-xs12 l-col-sm6 l-col-md4 l-col-lg3 l-col-xl2">
+                    <div class="demo--cell"></div>
+                </div>
+
+                <div class="l-col-xs12 l-col-sm6 l-col-md4 l-col-lg3 l-col-xl2">
+                    <div class="demo--cell"></div>
+                </div>
+
+                <div class="l-col-xs12 l-col-sm6 l-col-md4 l-col-lg3 l-col-xl2">
+                    <div class="demo--cell"></div>
+                </div>
+
+                <div class="l-col-xs12 l-col-sm6 l-col-md4 l-col-lg3 l-col-xl2">
+                    <div class="demo--cell"></div>
+                </div>
+
+            </div>
+
+            <div class="l-block">
+                <div class="l-col">
+                    <h2 class="demo-section--heading">Example: Offset</h2>
+                    <p><code>.l-offset-col1</code> - <code>.l-offset-col11</code></p>
+                </div>
+            </div>
+            <div class="l-block">
+                <div class="l-offset-col11"><div class="demo--cell">11</div></div>
+                <div class="l-offset-col10"><div class="demo--cell">10</div></div>
+                <div class="l-offset-col9"><div class="demo--cell">9</div></div>
+                <div class="l-offset-col8"><div class="demo--cell">8</div></div>
+                <div class="l-offset-col7"><div class="demo--cell">7</div></div>
+                <div class="l-offset-col6"><div class="demo--cell">6</div></div>
+                <div class="l-offset-col5"><div class="demo--cell">5</div></div>
+                <div class="l-offset-col4"><div class="demo--cell">4</div></div>
+                <div class="l-offset-col3"><div class="demo--cell">3</div></div>
+                <div class="l-offset-col2"><div class="demo--cell">2</div></div>
+                <div class="l-offset-col1"><div class="demo--cell">1</div></div>
+            </div>
+
+
+
+
+
+            <div class="l-block">
+                <div class="l-col">
+                    <h2 class="demo-section--heading">Responsive utilities</h2>
+                    <p class="demo-section--desc">Use these classes for hiding content by viewport size</p>
+                </div>
+            </div>
+
+           <div class="l-block">
+                <div class="l-col">
+
+<pre class="">
+<code class="language-css">
+    //classNames for hiding content
+
+    .l-col-xs--hidden
+    .l-col-sm--hidden
+    .l-col-md--hidden
+    .l-col-l-hidden
+    .l-col-xl--hidden
+</code>
+</pre>
+                </div>
+            </div>
+
+           <div class="l-block">
+                <div class="l-col">
+
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-container">
+    &ltdiv class="l-block">
+        &ltdiv class="l-col l-col-sm6 l-col-l-hidden">
+            Content...
+        &lt/div>
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="l-block">
+                <div class="l-col">
+                    <p class="demo-section--desc"><code>.l-block.lm-block--center</code>. Use these responsive classNames <code>.lm-block-*--center</code> to change alignment on different viewports (example, <code>.lm-block-xs--center</code>).</p>
+                </div>
+            </div>
+
+            <div class="l-block lm-block--center">
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+            </div>
+            <div class="l-block">
+                <div class="l-col">
+                    <p class="demo-section--desc"><code>.l-block.lm-block--right</code>. Use these responsive classNames <code>.lm-block-*--right</code> to change alignment on different viewports (example, <code>.lm-block-xs--right</code>).</p>
+                </div>
+            </div>
+
+            <div class="l-block lm-block--right">
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+            </div>
+
+            <div class="l-block">
+                <div class="l-col">
+                    <p class="demo-section--desc"><code>.l-block.lm-block--top</code>. Use these responsive classNames <code>.lm-block-*--top</code> to change alignment on different viewports (example, <code>.lm-block-xs--top</code>).</p>
+                </div>
+            </div>
+
+            <div class="l-block lm-block--top demo-alignment-block">
+                <div class="l-col4"><div class="demo--cell"></div></div>
+                <div class="l-col4"><div class="demo--cell"></div></div>
+                <div class="l-col4"><div class="demo--cell"></div></div>
+            </div>
+
+
+            <div class="l-block">
+                <div class="l-col">
+                    <p class="demo-section--desc"><code>.l-block.lm-block--middle</code>. Use these responsive classNames <code>.lm-block-*--middle</code> to change alignment on different viewports (example, <code>.lm-block-xs--middle</code>).</p>
+                </div>
+            </div>
+
+            <div class="l-block lm-block--middle demo-alignment-block">
+                <div class="l-col4"><div class="demo--cell"></div></div>
+                <div class="l-col4"><div class="demo--cell"></div></div>
+                <div class="l-col4"><div class="demo--cell"></div></div>
+            </div>
+
+            <div class="l-block">
+                <div class="l-col">
+                    <p class="demo-section--desc"><code>.l-block.lm-block--bottom</code>. Use these responsive classNames <code>.lm-block-*--bottom</code> to change alignment on different viewports (example, <code>.lm-block-xs--bottom</code>).
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="l-block lm-block--bottom demo-alignment-block">
+                <div class="l-col4"><div class="demo--cell"></div></div>
+                <div class="l-col4"><div class="demo--cell"></div></div>
+                <div class="l-col4"><div class="demo--cell"></div></div>
+            </div>
+
+            <div class="l-block">
+                <div class="l-col">
+                    <h2 class="demo-section--heading">Choose your own prefix</h2>
+<pre>
+<code class="language-scss">
+
+    $gridy-classname-prefix: "g";
+
+</code>
+</pre>
+                </div>
+            </div>
+
+            <div class="l-block">
+                <div class="l-col">
+
+Choose your own responsive viewport sizes
+<pre>
+<code class="language-scss" id="predefined-breakpoints">
+
+// breakpoint: (min-screen-width, max-screen-width, max-container-width),
+$gridy-breakpoint-list: (
+    xs: (100%, 319px, 100%),
+    sm: (320px, 767px, 100%),
+    md: (768px, 1023px, 100%),
+    lg: (1024px, 1439px, 1024px),
+    xl: (1440px, 100%, 1200px)
+);
+</code>
+</pre>
+                </div>
+            </div>
+
+
+
+            <div class="l-block">
+                <div class="l-col">
+
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-container l-column">
+    &ltdiv class="l-block">
+        &ltdiv class="l-col1 l-col-sm6">
+            Content
+        &lt/div>
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                </div>
+            </div>
+
+            <div class="l-block">
+                <div class="l-col">
+                    <div class="demo--cell"></div>
+                </div>
+            </div>
+
+
+            <div class="l-block">
+                <div class="l-col12">
+                    <h2 class="demo-section--heading" id="grid-class-names">Available classes</h2>
+                </div>
+
+                <div class="l-col12">
+                    <h3>Container <code>.l-container</code></h3>
+                    <p class="demo-section--desc">
+                        <code>.l-container</code> is the main layout className with predefined <code>width</code> based on <a href="#predefined-breakpoints">viewport breakpoints</a>, you need atleast one <code>.l-block</code> element as a direct child of this parent element.
+                    </p>
+
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-container">
+    &ltdiv class="l-block">
+        ...
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                    <h3>Full bleed container with <code>.lm-container--fluid</code> modifier</h3>
+                    <p class="demo-section--desc">
+                        In case you want a full bleed container, you can use <code>.lm-container--fluid</code> modifier class with <code>.l-container</code>
+                    </p>
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-container lm-container--fluid">
+    &ltdiv class="l-block">
+        ...
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                </div>
+
+            </div>
+            <div class="l-block">
+
+                <div class="l-col12">
+
+                    <h3>Grid Block <code>.l-block</code></h3>
+                    <p class="demo-section--desc">
+                        <code>.l-block</code>
+                    </p>
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-container">
+    &ltdiv class="l-block">
+       &ltdiv class="l-col4">&lt/div>
+       &ltdiv class="l-col4">&lt/div>
+       &ltdiv class="l-col4">&lt/div>
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                </div>
+
+            </div>
+
+            <div class="l-block">
+                <div class="l-col4"><div class="demo--cell">1</div></div>
+                <div class="l-col4"><div class="demo--cell">2</div></div>
+                <div class="l-col4"><div class="demo--cell">3</div></div>
+            </div>
+
+            <div class="l-block">
+                <div class="l-col12">
+                    <h3>Grid block modifiers <code>.lm-block--*</code></h3>
+                </div>
+
+                <p class="demo-section--desc">
+                    Here are list of modifier classNames you can use with <code>.l-block</code>.
+                </p>
+
+            </div>
+
+            <div class="l-block">
+                <div class="l-col">
+                    <h3><code>.l-block.lm-block--row-reverse or .lm-block-*--row-reverse</code></h3>
+                    <p class="demo-section--desc">Use these responsive classNames <code>.lm-block-*--row-revers</code> to change alignment on different viewports (example, <code>.lm-block-xs--row-revers</code>).</p>
+
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-container">
+    &ltdiv class="l-block lm-block--row-reverse">
+       &ltdiv class="l-col4">&lt/div>
+       &ltdiv class="l-col4">&lt/div>
+       &ltdiv class="l-col4">&lt/div>
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                </div>
+            </div>
+
+            <div class="l-block lm-block--row-reverse">
+                <div class="l-col4"><div class="demo--cell">1</div></div>
+                <div class="l-col4"><div class="demo--cell">2</div></div>
+                <div class="l-col4"><div class="demo--cell">3</div></div>
+            </div>
+
+
+            <div class="l-block">
+                <div class="l-col">
+                    <h3><code>.l-block.lm-block--column or .lm-block-*--column</code></h3>
+                    <p class="demo-section--desc">Use these responsive classNames <code>.lm-block-*--column</code> to change alignment on different viewports (example, <code>.lm-block-xs--column</code>).</p>
+
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-container">
+    &ltdiv class="l-block lm-block--column">
+       &ltdiv class="l-col4">&lt/div>
+       &ltdiv class="l-col4">&lt/div>
+       &ltdiv class="l-col4">&lt/div>
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                </div>
+            </div>
+
+            <div class="l-block lm-block--column">
+                <div class="l-col4"><div class="demo--cell">1</div></div>
+                <div class="l-col4"><div class="demo--cell">2</div></div>
+                <div class="l-col4"><div class="demo--cell">3</div></div>
+            </div>
+
+
+            <div class="l-block">
+                <div class="l-col">
+                    <h3><code>.l-block.lm-block--column-reverse or .lm-block-*--column-reverse</code></h3>
+                    <p class="demo-section--desc">Use these responsive classNames <code>.lm-block-*--column-reverse</code> to change alignment on different viewports (example, <code>.lm-block-xs--column-reverse</code>).</p>
+
+<pre class="">
+<code class="language-markup">
+&ltdiv class="l-container">
+    &ltdiv class="l-block lm-block--column-reverse">
+       &ltdiv class="l-col4">&lt/div>
+       &ltdiv class="l-col4">&lt/div>
+       &ltdiv class="l-col4">&lt/div>
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                </div>
+            </div>
+
+            <div class="l-block lm-block--column-reverse">
+                <div class="l-col4"><div class="demo--cell">1</div></div>
+                <div class="l-col4"><div class="demo--cell">2</div></div>
+                <div class="l-col4"><div class="demo--cell">3</div></div>
+            </div>
+
+            <div class="l-block">
+                <div class="l-col">
+                    <h3 class="demo-section--heading">Responsive utilities: Alignment</h3>
+                    <p class="demo-section--desc"><code>.l-block.lm-block--left</code>. Use these responsive classNames <code>.lm-block-*--left</code> to change alignment on different viewports (example, <code>.lm-block-xs--left</code>).</p>
+                </div>
+            </div>
+
+            <div class="l-block lm-block--left">
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+                <div class="l-col2"><div class="demo--cell"></div></div>
+            </div>
+
+
         </div>
     </div>
 
-<!--                 <div class="l-col-xs l-col-sm l-col-md l-col-lg l-col-xl">.l-col-xs .l-col-sm .l-col-md .l-col-lg .l-col-xl</div> -->
-
-    <!-- build:js(src) scripts/vendor.js -->
-    <!-- bower:js -->
-    <!-- run `gulp inject` to automatically populate bower script dependencies -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
-    <!-- inject:js -->
-    <!-- js files will be automatically insert here -->
-    <!-- endinject -->
-
-    <!-- inject:partials -->
-    <!-- angular templates will be automatically converted in js and inserted here -->
-    <!-- endinject -->
-    <!-- endbuild -->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
   </body>
 </html>

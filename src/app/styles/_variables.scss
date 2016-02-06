@@ -1,12 +1,18 @@
-$gridy-classname-prefix: "g";
+$gridy-classname-prefix: "";
+$gridy-block-abbr: "block";
+$gridy-container-abbr: "container";
+$gridy-column-abbr: "col";
+
+$gridy-gridblock-abbr: "grid";
 
 $gridy-grid-gutter: 20px !default;
 
-// breakpoint: (min-screen-width, max-screen-width, max-container-width),
+// breakpoint: (min-screen-width, max-screen-width, max-container-width, grid gutter),
 $gridy-breakpoint-list: (
-    xs: (100%, 319px, 100%),
-    sm: (320px, 767px, 100%),
-    md: (768px, 1023px, 100%),
-    lg: (1024px, 1439px, 1024px),
-    xl: (1440px, 100%, 1200px)
+    xs: (0px, 320px, 100%, 20px),
+    sm: (321px, 768px, 100%, 20px),
+    md: (769px, 1023px, 100%, 20px),
+    lg: (1024px, 1439px, 1024px, 20px),
+    xl: (1440px, 100%, 1200px, 20px)
 );
+
