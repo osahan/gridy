@@ -1,7 +1,7 @@
 {
   "name": "Gridy",
   "version": "1.0.0",
-  "description": "Flex based CSS grid system",
+  "description": "12 Column responsive flexbox CSS grid system",
   "author": "osahan",
   "license": "MIT",
   "devDependencies": {
