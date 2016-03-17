@@ -63,7 +63,7 @@
     }
 }
 
-@mixin gridy_cel($i) {
+@mixin gridy_cell($i) {
 
     flex: 0 0 auto;
     max-width: _gridyColFraction($i);

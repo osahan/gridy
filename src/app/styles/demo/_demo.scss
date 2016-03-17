@@ -1,7 +1,6 @@
 $cell-color: #3b5998;
 $code-color: $cell-color;
 $link-color: lighten($cell-color, 10%);
-// $code-background-color: #ddd;
 $code-background-color: lighten(#4099ff, 30%);
 
 body {
@@ -86,12 +85,9 @@ pre[class*=language-] {
             font-weight: 900;
             position: absolute;
             bottom: 10px;
-            // right: 2px;
             left: 50%;
             transform: translateX(-50%);
             color: rgba(0, 0, 0, 0.65);
-            // text-shadow: rgba(0, 0, 0, 0.5) 1px 0px 1px;
-
         }
 
         .l-block {
@@ -130,29 +126,21 @@ pre[class*=language-] {
 
         .sm {
 
-            // background-color: #8be;
-            // background-color: #9cf;
             background-color: #dcdcdc;
         }
 
         .md {
 
-            // background-color: #7b7;
-            // background-color: #ada;
             background-color: #c6c6c6;
         }
 
         .lg {
 
-            // background-color: #fe3;
-            // background-color: #ffc;
             background-color: #b0b0b0;
         }
 
         .xl {
 
-            // background-color: #d44;
-            // background-color: #d66;
             background-color: #9a9a9a;
         }
 
@@ -163,37 +151,12 @@ pre[class*=language-] {
 
     background-color: #f1f1f1;
 
-    .l-#{$gridy-container-abbr} {
-
-        // background-color: #e0e0e0;
-        // background-color: #cce6ff;
-        // height: 100vh;
-    }
-
-    .l-block {
-
-        // background-color: #ddd;
-    }
-    .l-row {
-
-        // background-color: #ddd;
-        // min-height: 100px;
-    }
-
     .demo--cell {
 
         background-color: $cell-color;
         padding: 1.4em 0;
         color: #fff;
         text-align: center;
-    }
-
-    .l-col,
-    [class^="l-col-"],
-    [class*=" l-col-"] {
-
-        // text-align: center;
-        // padding: 20px;
     }
 }
 

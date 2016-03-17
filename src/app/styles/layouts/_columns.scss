@@ -1,0 +1,61 @@
+
+.#{$gridy-classname-prefix}l-col {
+
+    flex-basis: 100%;
+    flex: 1 0 auto;
+    max-width: 100%;
+    padding: _gridyGutterFraction();
+}
+
+@for $i from 1 through 12 {
+    .#{$gridy-classname-prefix}l-col#{$i} {
+
+            @include gridy_cell($i);
+    }
+}
+
+@include respond_to_breakpoint() {
+
+    $size: $gridy-size;
+
+    @for $i from 1 through 12 {
+        .#{$gridy-classname-prefix}lm-col-#{$size}#{$i} {
+
+            @include gridy_cell($i);
+        }
+    }
+}
+
+// Responsive Utilities Hide column
+@include respond_to_breakpoint() {
+
+    $size: $gridy-size;
+
+    .#{$gridy-classname-prefix}l-col-#{$size}--hidden {
+
+        display: none !important;
+    }
+}
+
+// Offset - Static
+@for $i from 1 through 11 {
+    .#{$gridy-classname-prefix}l-offset-col#{$i} {
+
+        @include gridy_cell(12 - $i);
+        margin-left: _gridyColFraction($i);
+    }
+}
+
+// Offset - Responsive
+@include respond_to_breakpoint() {
+
+    $size: $gridy-size;
+
+    @for $i from 1 through 11 {
+        .#{$gridy-classname-prefix}lm-offset-col-#{$size}#{$i} {
+
+            @include gridy_cell(12 - $i);
+            margin-left: _gridyColFraction($i);
+        }
+    }
+}

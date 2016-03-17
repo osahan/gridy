@@ -1,0 +1,28 @@
+{
+  "name": "Gridy",
+  "description": "12 Column responsive flexbox CSS grid system.",
+  "version": "1.0.0",
+  "homepage": "https://github.com/osahan/gridy",
+  "main": "dist/app/gridy.scss",
+  "authors": [
+    "Osahan <robi_osahan@yahoo.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "flexbox",
+    "12 column",
+    "layout",
+    "grid",
+    "grid system"
+  ],
+  "homepage": "https://github.com/osahan/gridy",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
