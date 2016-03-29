@@ -1,45 +1,71 @@
 
 .#{$gridy-classname-prefix}l-col {
 
-    flex-basis: 100%;
-    flex: 1 0 auto;
-    max-width: 100%;
-    padding: _gridyGutterFraction();
+    flex: 1;
+    margin: _gridyGutterFraction();
 }
 
+// Static Columns
 @for $i from 1 through 12 {
-    .#{$gridy-classname-prefix}l-col#{$i} {
+    .#{$gridy-classname-prefix}lm-col--#{$i} {
 
             @include gridy_cell($i);
     }
 }
 
+// Responsive Columns within a size
 @include respond_to_breakpoint() {
 
     $size: $gridy-size;
 
     @for $i from 1 through 12 {
-        .#{$gridy-classname-prefix}lm-col-#{$size}#{$i} {
+        .#{$gridy-classname-prefix}lm-col--#{$size}#{$i} {
 
             @include gridy_cell($i);
         }
     }
 }
 
+// Responsive Columns above size
+@include respond_above() {
+
+    $size: $gridy-size;
+
+    @for $i from 1 through 12 {
+        .#{$gridy-classname-prefix}lm-col--above-#{$size}#{$i} {
+
+            @include gridy_cell($i);
+        }
+    }
+}
+
+
 // Responsive Utilities Hide column
 @include respond_to_breakpoint() {
 
     $size: $gridy-size;
 
-    .#{$gridy-classname-prefix}l-col-#{$size}--hidden {
+    .#{$gridy-classname-prefix}lm-col--#{$size}-hidden {
 
         display: none !important;
     }
 }
 
+// Responsive Utilities Hide column above size
+@include respond_above() {
+
+    $size: $gridy-size;
+
+    .#{$gridy-classname-prefix}lm-col--above-#{$size}-hidden {
+
+        display: none !important;
+    }
+}
+
+
 // Offset - Static
 @for $i from 1 through 11 {
-    .#{$gridy-classname-prefix}l-offset-col#{$i} {
+    .#{$gridy-classname-prefix}lm-col--offset-#{$i} {
 
         @include gridy_cell(12 - $i);
         margin-left: _gridyColFraction($i);
@@ -52,7 +78,20 @@
     $size: $gridy-size;
 
     @for $i from 1 through 11 {
-        .#{$gridy-classname-prefix}lm-offset-col-#{$size}#{$i} {
+        .#{$gridy-classname-prefix}lm--col-#{$size}-offset-#{$i} {
+
+            @include gridy_cell(12 - $i);
+            margin-left: _gridyColFraction($i);
+        }
+    }
+}
+// Offset - Responsive above
+@include respond_above() {
+
+    $size: $gridy-size;
+
+    @for $i from 1 through 11 {
+        .#{$gridy-classname-prefix}lm-col-above-#{$size}-offset-#{$i} {
 
             @include gridy_cell(12 - $i);
             margin-left: _gridyColFraction($i);

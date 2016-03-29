@@ -63,11 +63,34 @@
     }
 }
 
-@mixin gridy_cel($i) {
+@mixin respond_above($size: null) {
+
+    @if type-of($size) == string {
+
+        @include _setSizeVars($size);
+        @media screen and (min-width: $gridy-max-width) {
+
+            @content;
+        }
+    } @else {
+
+        @each $size, $widths in $gridy-breakpoint-list {
+
+            @include _setSizeVars($size);
+            @media screen and (min-width: $gridy-max-width) {
+
+                @content;
+            }
+        }
+
+    }
+}
+
+@mixin gridy_cell($i) {
 
     flex: 0 0 auto;
     max-width: _gridyColFraction($i);
     flex-basis: _gridyColFraction($i);
-    padding: _gridyGutterFraction();
+    // padding: _gridyGutterFraction();
+    margin: _gridyGutterFraction();
 }
-
