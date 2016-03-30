@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gridy</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/osahan/gridy/master/dist/gridy.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/demo.css" media="screen">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- run `gulp inject` to automatically populate bower styles dependencies -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp/serve,src}) styles/app.css -->
+    <!-- inject:css -->
+    <!-- css files will be automatically insert here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <header class="demo-screen">
+        <div class="l-container">
+            <div class="demo-header">GRiDY
+            </div>
+            <div class="l-grid header">
+                <div class="lm-col--2">
+                    <div class="demo--cell"><i class="ion-iphone"></i></div>
+                </div>
+                <div class="lm-col--3">
+                    <div class="demo--cell"><i class="ion-ipad"></i></div>
+                </div>
+                <div class="lm-col--3">
+                    <div class="demo--cell"><i class="ion-laptop"></i></div>
+                </div>
+                <div class="lm-col--4">
+                    <div class="demo--cell"><i class="ion-monitor"></i></div>
+                </div>
+            </div>
+
+            <div class="l-grid">
+                <div class="lm-col--2 sm">
+                    <div class="lm-col--cell"></div>
+                </div>
+                <div class="lm-col--3 md">
+                    <div class="demo--cell"></div>
+                </div>
+                <div class="lm-col--3 lg">
+                    <div class="demo--cell"></div>
+                </div>
+                <div class="lm-col--4 xl">
+                    <div class="demo--cell"></div>
+                </div>
+            </div>
+            <div class="l-grid footer">
+                <div class="lm-col--2">
+                    <div class="demo--cell">320px</div>
+                </div>
+                <div class="lm-col--3">
+                    <div class="demo--cell">768px</div>
+                </div>
+                <div class="lm-col--3">
+                    <div class="demo--cell">1024px</div>
+                </div>
+                <div class="lm-col--4">
+                    <div class="demo--cell">1440px</div>
+                </div>
+            </div>
+        </div>
+        <h1 class="demo-header--meta-content">Flexbox based <span>responsive</span> grid system.</h1>
+
+
+
+<a href="https://github.com/osahan/gridy"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+
+    </header>
+
+    <div class="gridy gridy-demo">
+
+        <div class="l-container">
+
+            <div class="l-grid">
+                <div class="lm-col--12">
+
+                    <h2 class="demo-section--heading">Gridy</h2>
+                    <p>Gridy is a simple 12 Column flexbox grid system. There are three base layout modules. ‘l-container’, ‘l-grid’ and ‘l-col’ in addition to these modules there is a whole array of module modifies. These easy to use modifiers helps you restrict your changes with in a breakpoint or you can apply your style above any breakpoint. Here’s how Gridy is layed out</p>
+
+                </div>
+
+                <div class="lm-col--12">
+                    <script async src="https://jsfiddle.net/robi_osahan/wLdbjL14/embed/html,result/dark/"></script>
+                </div>
+
+                <div class="lm-col--12">
+<!--                     <ul class="demo-list">
+                        <li class="demo-list--item">
+                            Stacked blocks <code>.l-grid</code> must be placed within a <code>.l-container</code>.
+                        </li>
+
+                        <li class="demo-list--item">
+                            Use <code>.lm-grid*</code> modifiers to vertically or horizontally stack your grid columns.
+                        </li>
+
+                        <li class="demo-list--item">
+                            Use predefined classNames <code>.lm-col--6</code> to quicking create a grid layout inside <code>.l-grid</code>.
+                        </li>
+
+                        <li class="demo-list--item">
+                            Content should be placed within <code>.lm-col--*</code> and column should be immediate child of <code>.l-grid</code>.
+                        </li>
+                    </ul> -->
+     
+                    <p>
+                        <script async src="http://jsfiddle.net/robi_osahan/p6zbhwtw/embed/html,result/dark/"></script>
+                    </p>
+
+                    <h2 class="demo-section--heading">Getting Started</h2>
+
+                    <a href="">Download Gridy</a> and include the CSS in the <head> of your site:
+
+<p>
+<pre class="">
+<code class="language-markup">
+&ltlink rel="stylesheet" href="/dist/gridy.min.css">
+</code>
+</pre>
+
+    Alternatively, you can install Gridy with <a href="http://bower.io/">Bower</a> or <a href="https://www.npmjs.com/">NPM</a>.
+</p>
+
+                    <strong>Bower</strong>
+
+<p>
+<pre class="">
+<code class="language-markup">
+$ bower install gridy
+</code>
+</pre>
+</p>
+                    <strong>npm</strong>
+
+<p>
+<pre class="">
+<code class="language-markup">
+$ npm install gridy
+</code>
+</pre>
+</p>
+                    <h2 class="demo-section--heading">Customizing with Sass</h2>
+
+                    <p>If you’re familiar with SASS you can easily customize Gridy,  its pretty easy to use your own classNames, grid gutters and even viewport breakpoints.</p>
+
+                    <h3>Import Files & Customize</h3>
+
+<p>
+<pre class="">
+<code class="language-scss">
+$gridy-classname-prefix: "" !default;
+$gridy-container-abbr: "container" !default;
+$gridy-block-abbr: "grid" !default;
+$gridy-column-abbr: "col" !default;
+$gridy-grid-gutter: 20px !default;
+
+$gridy-breakpoint-list: (
+    xs: (0px, 320px, 100%, 20px),
+    sm: (321px, 768px, 100%, 20px),
+    md: (769px, 1023px, 100%, 20px),
+    lg: (1024px, 1439px, 1024px, 20px),
+    xl: (1440px, 100%, 1200px, 20px)
+) !default;
+
+@import "gridy/dist/app/gridy";
+</code>
+</pre>
+</p>
+
+                    <h2 class="demo-section--heading">Understanding the base structure</h2>
+
+                    <h3>Wrapper Module</h3>
+                    <p><code>.l-container</code> className is assigned the main wrapper element, this className will bring all predefined widths to your layout based on viewport breakpoints.</p>
+                    <p>This module consists of two elements, wrapper <code>.l-container</code> and a direct child <code>.l-container--item</code> and one optional modifier <code>.lm-container--fluid</code>, this modifier className forces <code>.l-container</code> to skip breakpoint width and sets its width to 100% for all breakpoints.</p>
+
+<pre>
+<code class="language-markup">
+// Width of this container will get set based on breakpoints.
+&ltdiv class="l-container">
+    &ltdiv class="l-container--item">
+    &lt/div>
+&lt/div>
+
+// Use case: Keep the wrapper container full bleed
+// Width of this container will always be 100% regardless of breakpoints.
+&ltdiv class="l-container lm-container--fluid">
+    &ltdiv class="l-container--item">
+    &lt/div>
+&lt/div>    
+</code>
+</pre>
+                    <h3>Grid Module</h3>
+                    <p><code>.l-grid</code>, think of this as Bootstrap’s <code>.row</code>, but on steroids. It offers a set of modifiers to easily arrange columns. Every modifier has counterparts to restrict your changes to a viewport or to change the behavior above given breakpoint.</p>
+<pre>
+<code class="language-markup">
+&ltdiv class="l-container">
+    &ltdiv class="l-container--item l-grid">
+    &lt/div>
+&lt/div>
+</code>
+</pre>
+                    <h3>Grid Modifiers: Cell Direction</h3>
+
+                    <p><code>.lm-grid--row-reverse</code> or use these responsive modifiers <code>.lm-grid--*-row-reverse</code>/ <code>.lm-grid--above-*-row-reverse</code>  <i>(example: <code>.lm-grid--xs-row-reverse</code> / <code>.lm-grid--above-xs-row-reverse</code>)</i>.</p>
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/rr3q7hev/embed/html,result/dark/"></script>
+                    </p>
+
+                    <p><code>.lm-grid--column</code> / <code>.lm-grid--*-column</code> / <code>.lm-grid--above-*-column</code></p>
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/afew7t87/embed/html,result/dark/"></script>
+                    </p>
+
+                    <p><code>.lm-grid--column-reverse</code> / <code>.lm-grid--*-column-reverse</code> / <code>.lm-grid--above-*-column-reverse</code></p>
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/ct9kpraq/embed/html,result/dark/"></script>
+                    </p>
+
+                    <h3>Grid Modifiers: Cell Alignment</h3>
+
+                    <p><code>.lm-grid--left</code>, for responsive alignment <code>.lm-grid--*-left</code> or above your viewport breakpoint <code>.lm-grid--above-*-left</code>. <i>(example: <code>.lm-grid--xs-left</code> or <code>.lm-grid--above-xs-left</code>)</i></p>
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/g1b2bf26/embed/html,result/dark/"></script>
+                    </p>
+
+                    <p><code>.lm-grid--center</code> / <code>.lm-grid--*-center</code> / <code>.lm-grid--above-*-center</code></p>
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/bw544Lmb/embed/html,result/dark/"></script>
+                    </p>
+
+                    <p><code>.lm-grid--right</code> / <code>.lm-grid--*-right</code> / <code>.lm-grid--above-*-right</code></p>
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/ssvj1q0b/embed/html,result/dark/"></script>
+                    </p>
+
+                    <p><code>.lm-grid--top</code> / <code>.lm-grid--*-top</code> / <code>.lm-grid--above-*-top</code></p>
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/xpojrhoL/embed/html,result/dark/"></script>
+                    </p>
+
+                    <p><code>.lm-grid--middle</code> / <code>.lm-grid--*-middle</code> / <code>.lm-grid--above-*-middle</code></p>
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/ru6chk8x/embed/html,result/dark/"></script>
+                    </p>
+
+                    <p><code>.lm-grid--bottom</code> / <code>.lm-grid--*-bottom</code> / <code>.lm-grid--above-*-bottom</code></p>
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/9512hm6f/embed/html,result/dark/"></script>
+                    </p>
+
+                    <h2 class="demo-section--heading">Column Module</h2>
+                    <p><code>.l-col</code> this is the base column module, you can use this to auto fill the column space.</p>
+
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/7y8k4sky/embed/html,result/dark/"></script>
+                    </p>
+
+
+                    <h3>Static Column modifier classNames</h3>
+                    <p><code>.lm-col--1</code> for 1/12 size column, you can go all the way up to <code>.lm-col--12</code>.</p>
+
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/emxk7s7t/embed/html,result/dark/"></script>
+                    </p>
+
+
+                    <h3>Responsive Columns classNames</h3>
+                    <p><code>.lm-col--*-1</code> to <code>.lm-col--*-12</code> or <code>.lm-col--above-*-1</code> to <code>.lm-col--above-*-12</code> <i>(example: replace * with your breakpoint key <code>.lm-col--xs-1</code> / <code>.lm-col--above-xs-1</code>)</i>.</p>
+
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/7zeseLwm/embed/html,result/dark/"></script>
+                    </p>
+
+
+                    <h3>Hide on at a breakpoint or above breakpoint</h3>
+                    <p><code>.lm-col--*-hidden</code> <i>(example: replace * with your breakpoint key <code>.lm-col--xs-hidden</code>)</i> or <code>.lm-col--above-*-hidden</code> <i>(example: <code>.lm-col--above-xs-hidden</code>)</i>.</p>
+
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/f8fw32m3/embed/html,result/dark/"></script>
+                    </p>
+
+                    <h3>Column Offset <code>.lm-cell--offset-*</code></h3>
+                    <p><code>.lm-col--offset-1</code> to <code>.lm-col--offset-11</code> for static columns, for responsive columns use <code>.lm-col--offset-*-1</code> or <code>.lm-col--offset-above-*-1</code> <i>(example: replace * with your breakpoint key <code>.lm-col--offset-xs-1</code> or <code>.lm-col--offset-above-xs-1</code>)</i>.</p>
+
+                    <p>
+                        <script async src="https://jsfiddle.net/robi_osahan/bc5kLouh/embed/html,result/dark/"></script>
+                    </p>
+                </div>
+            </div>
+    </div>
+
+<div class="demo-footer">
+Licensed under
+<a href="https://github.com/osahan/gridy/blob/master/LICENSE" target="_blank">The MIT License (MIT)</a>
+· This project is maintained by <a href="https://github.com/osahan" target="_blank">Osahan</a>
+· Hosted on GitHub Pages
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+  </body>
+</html>
