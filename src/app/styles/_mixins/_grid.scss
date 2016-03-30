@@ -90,5 +90,5 @@
     flex: 0 0 auto;
     max-width: _gridyColFraction($i);
     flex-basis: _gridyColFraction($i);
-    margin: _gridyGutterFraction();
+    padding: _gridyGutterFraction(); 
 }
