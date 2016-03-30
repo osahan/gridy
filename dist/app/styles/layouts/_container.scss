@@ -2,7 +2,6 @@
 
     width: 100%;
 
-
     @include respond_to_breakpoint() {
 
         margin-left: auto;
@@ -10,10 +9,7 @@
         width: gridyContainerWidth($gridy-size);
     }
 
-    * {
-
-        box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 }
 
 
@@ -37,7 +33,4 @@
     }
 }
 
-.#{$gridy-classname-prefix}lm-#{$gridy-container-abbr}-fluid {
-
-    width: 100%;
-}
+.#{$gridy-classname-prefix}lm-#{$gridy-container-abbr}-fluid { width: 100%; }

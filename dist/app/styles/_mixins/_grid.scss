@@ -82,7 +82,6 @@
                 @content;
             }
         }
-
     }
 }
 
@@ -91,6 +90,5 @@
     flex: 0 0 auto;
     max-width: _gridyColFraction($i);
     flex-basis: _gridyColFraction($i);
-    // padding: _gridyGutterFraction();
-    margin: _gridyGutterFraction();
+    padding: _gridyGutterFraction(); 
 }

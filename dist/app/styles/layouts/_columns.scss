@@ -2,7 +2,7 @@
 .#{$gridy-classname-prefix}l-col {
 
     flex: 1;
-    margin: _gridyGutterFraction();
+    padding: _gridyGutterFraction();
 }
 
 // Static Columns
