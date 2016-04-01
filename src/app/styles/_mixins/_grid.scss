@@ -20,11 +20,15 @@
 @mixin _setSizeVars($size) {
 
     $size-map: map-get($gridy-breakpoint-list, $size);
-    $gridy-size: $size !global;
-    $gridy-min-width: nth($size-map, 1) !global;
-    $gridy-max-width: nth($size-map, 2) !global;
-    $gridy-max-container-width: nth($size-map, 3) !global;
-    $gridy-grid-gutter: nth($size-map, 4) !global;
+
+    @if $size-map != null {
+        
+        $gridy-size: $size !global;
+        $gridy-min-width: nth($size-map, 1) !global;
+        $gridy-max-width: nth($size-map, 2) !global;
+        $gridy-max-container-width: nth($size-map, 3) !global;
+        $gridy-grid-gutter: nth($size-map, 4) !global;
+    }
 }
 
 @function _maxViewport($width: $gridy-max-width) {
