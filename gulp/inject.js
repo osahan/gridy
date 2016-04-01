@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var conf = require('./conf');
 var $ = require('gulp-load-plugins')();
 
-gulp.task('inject', ['styles', 'assets'], function () {
+gulp.task('inject', ['styles'], function () {
 
     var injectStyles = gulp.src([
             path.join(conf.paths.tmp, '/serve/app/index.css'),
