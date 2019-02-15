@@ -1,4 +1,3 @@
-
 @function gridyContainerWidth($_size: $current-size) {
 
     $size-map: map-get($gridy-breakpoint-list, $_size);
@@ -12,17 +11,14 @@
     @return ((100 / 12) * $i) * 1%;
 }
 
-@function _gridyGutterFraction($gutter: $gridy-grid-gutter){
-
+@function _gridyGutterFraction($gutter: $gridy-grid-gutter) {
     @return $gutter / 2;
 }
 
 @mixin _setSizeVars($size) {
-
     $size-map: map-get($gridy-breakpoint-list, $size);
 
-    @if $size-map != null {
-        
+    @if $size-map !=null {
         $gridy-size: $size !global;
         $gridy-min-width: nth($size-map, 1) !global;
         $gridy-max-width: nth($size-map, 2) !global;
@@ -31,36 +27,35 @@
     }
 }
 
-@function _maxViewport($width: $gridy-max-width) {
+@function _viewport_query($width: $gridy-max-width) {
+    $min-viewport: "screen and (min-width: $gridy-min-width)";
+    $max-viewport: '';
 
-    $max-viewport: "";
-
-    @if $width != 100% {
-
+    @if $width !=100% {
         $max-viewport: "and (max-width: #{$width})";
     }
 
-    @return $max-viewport;
+    @return $min-viewport $max-viewport;
 }
 
 @mixin respond_to_breakpoint($size: null) {
-
-    @if type-of($size) == string {
-
+    @if type-of($size)==string {
         @include _setSizeVars($size);
-        $max-viewport: _maxViewport($gridy-max-width);
-        @media screen and (min-width: $gridy-min-width) #{$max-viewport} {
+        $viewport: _viewport_query($gridy-max-width);
 
+        @media #{$max-viewport} {
             @content;
         }
-    } @else {
+    }
 
-        @each $size, $widths in $gridy-breakpoint-list {
+    @else {
 
+        @each $size,
+        $widths in $gridy-breakpoint-list {
             @include _setSizeVars($size);
-            $max-viewport: _maxViewport($gridy-max-width);
-            @media screen and (min-width: $gridy-min-width) #{$max-viewport} {
+            $max-viewport: _viewport_query($gridy-max-width);
 
+            @media #{$max-viewport} {
                 @content;
             }
         }
@@ -68,21 +63,22 @@
 }
 
 @mixin respond_above($size: null) {
-
-    @if type-of($size) == string {
+    @if type-of($size)==string {
 
         @include _setSizeVars($size);
-        @media screen and (min-width: $gridy-max-width) {
 
+        @media screen and (min-width: $gridy-max-width) {
             @content;
         }
-    } @else {
+    }
 
-        @each $size, $widths in $gridy-breakpoint-list {
+    @else {
 
+        @each $size,
+        $widths in $gridy-breakpoint-list {
             @include _setSizeVars($size);
-            @media screen and (min-width: $gridy-max-width) {
 
+            @media screen and (min-width: $gridy-max-width) {
                 @content;
             }
         }
@@ -90,9 +86,8 @@
 }
 
 @mixin gridy_cell($i) {
-
     flex: 0 0 auto;
     max-width: _gridyColFraction($i);
     flex-basis: _gridyColFraction($i);
-    padding: _gridyGutterFraction(); 
+    padding: _gridyGutterFraction();
 }

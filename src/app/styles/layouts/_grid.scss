@@ -1,44 +1,36 @@
 .#{$gridy-classname-prefix}l-#{$gridy-block-abbr} {
-
-    display: flex;
-    flex-wrap: wrap;
     align-items: stretch;
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
     //block layout direction, default is row
     &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--row-reverse {
-
         flex-direction: row-reverse;
     }
 
     &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--column {
-
         flex-direction: column;
     }
 
     &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--column-reverse {
-
         flex-direction: column-reverse;
     }
 
     //alignment - Responsive for given size
     @include respond_to_breakpoint() {
-
         $size: $gridy-size;
 
         //block layout direction, default is row
         &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--#{$size}-row-reverse {
-
             flex-direction: row-reverse;
         }
 
         &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--#{$size}-column {
-
             flex-direction: column;
         }
 
         &.#{$gridy-classname-prefix}lm-#{$gridy-block-abbr}--#{$size}-column-reverse {
-
             flex-direction: column-reverse;
         }
     }
