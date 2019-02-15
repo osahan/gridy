@@ -28,7 +28,7 @@
 }
 
 @function _viewport_query($width: $gridy-max-width) {
-    $min-viewport: "screen and (min-width: $gridy-min-width)";
+    $min-viewport: "screen and (min-width: #{$gridy-min-width})";
     $max-viewport: '';
 
     @if $width !=100% {
